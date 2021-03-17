@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -25,8 +27,9 @@ public class Course implements Serializable {
     @Column(name = "course_brief", nullable = false)
     private String courseBrief;
 
-    @Column(name = "instructor_id", nullable = false)
-    private Integer instructorId;
+    @ManyToOne
+    @JoinColumn(name = "instructor_id", nullable = false)
+    private Instructor instructor;
 
     @Column(name = "num_of_chapters", nullable = false)
     private Integer numOfChapters;
@@ -34,7 +37,8 @@ public class Course implements Serializable {
     @Column(name = "course_fee", nullable = false)
     private Integer courseFee;
 
-    @Column(name = "language_id", nullable = false)
-    private Integer languageId;
+    @ManyToOne
+    @JoinColumn(name = "language_id", nullable = false)
+    private Language language;
 
 }

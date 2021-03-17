@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
@@ -20,11 +22,13 @@ public class LearningProgress implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "enrollment_id", nullable = false)
-    private Integer enrollmentId;
+    @ManyToOne
+    @JoinColumn(name = "enrollment_id", nullable = false)
+    private Enrollment enrollment;
 
-    @Column(name = "course_chapter_content_id", nullable = false)
-    private Integer courseChapterContentId;
+    @ManyToOne
+    @JoinColumn(name = "course_chapter_content_id", nullable = false)
+    private CourseChapterContent courseChapterContent;
 
     @Column(name = "begin_timestamp", nullable = false)
     private Date beginTimestamp;

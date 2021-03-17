@@ -1,22 +1,11 @@
 package com.elearning.entity.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class LanguageDTO {
     private Integer id;
     private String languageName;
-
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getLanguageName() {
-        return this.languageName;
-    }
-
-    public void setLanguageName(String languageName) {
-        this.languageName = languageName;
-    }
 }

@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -20,8 +22,9 @@ public class Feedback implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "enrollment_id", nullable = false)
-    private Integer enrollmentId;
+    @ManyToOne
+    @JoinColumn(name = "enrollment_id", nullable = false)
+    private Enrollment enrollment;
 
     @Column(name = "rating_score", nullable = false)
     private Integer ratingScore;
