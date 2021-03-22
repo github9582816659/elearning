@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.elearning.repository", transactionManagerRef = "jpaTransactionManager")
+@EnableJpaRepositories(basePackages = "com.elearning")
 @PropertySource(value = { "classpath:application.properties" })
 @EnableTransactionManagement
 public class JpaConfig {

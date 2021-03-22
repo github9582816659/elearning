@@ -28,9 +28,9 @@ public class StudentApi {
         return studentService.save(studentDTO);
     }
 
-    @GetMapping("/{name}")
-    public StudentDTO findByName(@PathVariable String name) {
-        return studentService.findByName(name);
+    @GetMapping("/{firstName}/{lastName}")
+    public StudentDTO findByName(@PathVariable String firstName, @PathVariable String lastName) {
+        return studentService.findByName(firstName, lastName);
     }
 
     @GetMapping
@@ -43,8 +43,8 @@ public class StudentApi {
         return studentService.update(studentDTO);
     }
 
-    @DeleteMapping("/{name}")
-    public boolean delete(@PathVariable String name) {
-        return studentService.delete(name);
+    @DeleteMapping("/{firstName}/{lastName}")
+    public String delete(@PathVariable String firstName, @PathVariable String lastName) {
+        return studentService.delete(firstName, lastName);
     }
 }

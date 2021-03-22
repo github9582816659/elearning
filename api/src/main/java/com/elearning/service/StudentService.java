@@ -8,7 +8,7 @@ public interface StudentService {
 
     StudentDTO save(StudentDTO studentDTO);
     StudentDTO update(StudentDTO studentDTO);
-    StudentDTO findByName(String name);
+    StudentDTO findByName(String firstName, String lastName);
     List<StudentDTO> findAll();
-    boolean delete(String name);
+    String delete(String firstName, String lastName);
 }

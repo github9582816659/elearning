@@ -1,14 +1,14 @@
 package com.elearning.service;
 
-import com.elearning.entity.dto.InstructorDTO;
+import com.elearning.entity.Instructor;
 
 import java.util.List;
 
 public interface InstructorService {
 
-    InstructorDTO save(InstructorDTO instructorDTO);
-    InstructorDTO update(InstructorDTO instructorDTO);
-    InstructorDTO findByName(String name);
-    List<InstructorDTO> findAll();
-    boolean delete(String name);
+    Instructor save(Instructor instructor);
+    Instructor update(Instructor instructor);
+    Instructor findByName(String firstName, String lastName);
+    List<Instructor> findAll();
+    String delete(String firstName, String lastName);
 }
