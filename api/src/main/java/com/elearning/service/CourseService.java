@@ -8,7 +8,7 @@ public interface CourseService {
 
     Course save(Course course);
     Course update(Course course);
-    Course findByCourseTitle(String title);
+    Course findById(Integer title);
     List<Course> findAll();
     String delete(String name);
 

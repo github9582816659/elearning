@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -34,10 +35,10 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course findByCourseTitle(String title) {
-        Course course= courseRepository.findByCourseTitle(title);
-        if (course != null) {
-            return course;
+    public Course findById(Integer id) {
+        Optional<Course> course= courseRepository.findById(id);
+        if (course.isPresent()) {
+            return course.get();
         }
         return null;
     }

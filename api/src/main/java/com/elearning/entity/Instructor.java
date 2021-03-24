@@ -66,6 +66,6 @@ public class Instructor implements Serializable {
     @Column(name = "num_of_reviews", nullable = false)
     private Integer numOfReviews;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor")
     private List<Course> courses = new ArrayList<>();
 }

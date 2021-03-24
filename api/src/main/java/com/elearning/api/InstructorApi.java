@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -38,19 +39,27 @@ public class InstructorApi {
     }
 
     @GetMapping("/{firstName}/{lastName}")
-    public Instructor findByName(@PathVariable String firstName, @PathVariable String lastName) {
-        return instructorService.findByName(firstName, lastName);
+    public InstructorDTO findByName(@PathVariable String firstName, @PathVariable String lastName) {
+        Instructor byName = instructorService.findByName(firstName, lastName);
+        return InstructorMapper.INSTANCE.instructorToInstructorDto(byName);
     }
 
     @GetMapping
-    public List<Instructor> findAll() {
-        return instructorService.findAll();
+    public List<InstructorDTO> findAll() {
+        List<Instructor> all = instructorService.findAll();
+        List<InstructorDTO> list = new ArrayList<>();
+        for(Instructor instructor: all) {
+            InstructorDTO instructorDTO = InstructorMapper.INSTANCE.instructorToInstructorDto(instructor);
+            list.add(instructorDTO);
+        }
+        return list;
     }
 
     @PutMapping
-    public Instructor update(@RequestBody InstructorDTO instructorDTO) {
+    public InstructorDTO update(@RequestBody InstructorDTO instructorDTO) {
         Instructor instructor = InstructorMapper.INSTANCE.instructorDtoToInstructor(instructorDTO);
-        return instructorService.update(instructor);
+        Instructor update = instructorService.update(instructor);
+        return InstructorMapper.INSTANCE.instructorToInstructorDto(update);
     }
 
     @DeleteMapping("/{firstName}/{lastName}")
