@@ -69,11 +69,18 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- -->
+		<!-- Apache Commons -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
+		</dependency>
+
+		<!-- HyPersistence-->
+		<dependency>
+			<groupId>io.hypersistence</groupId>
+			<artifactId>hypersistence-optimizer</artifactId>
+			<version>2.3.0-trial</version>
 		</dependency>
 
 
